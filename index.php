@@ -189,10 +189,25 @@ if(isset($_POST["btnLimpiar"])){
                                     <button type="submit" id="btnBorrar" name="btnBorrar" class="btn btn-danger"> Borrar </button>
                                     <button type="submit" id="btnActualizar" name="btnActualizar" class="btn btn-success"> Actualizar </button>
                                 </div>
+
+                                <?php if(isset($_POST["btnGuardar"])){?>
+                                <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                                    <strong>Tu cliente se ha guardado exitosamente</strong> 
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <?php }; ?>
+
+                                <?php if(isset($_POST["btnActualizar"])){?>
+                                <div class="alert alert-warning alert-dismissible fade show mt-2" role="alert">
+                                    <strong>Tu cliente se ha actualizado exitosamente</strong> 
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <?php }; ?>
+
                             </div>                          
             </form>
         </div>    
-        <div class="col-12 col-md-6 mt-md-0 mt-4 tabla">
+        <div class="col-12 col-md-6 mt-md-0 mt-4 mb-md-0 mb-2 tabla">
             <table class="table table-hover border">
                 <tr>
                     <th>Imagen</th>
@@ -217,7 +232,10 @@ if(isset($_POST["btnLimpiar"])){
             <a href="index.php"><i class="fas fa-plus"></i></a>
         </div>
     </div>
-</div>    
+</div> 
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
 
 </html>
