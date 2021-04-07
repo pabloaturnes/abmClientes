@@ -1,8 +1,5 @@
 <?php
 
-ini_set('display_errors','1');
-
-ini_set('error_reporting', E_ALL);
 
 // abrir el Archivo.txt si existe
 if(file_exists("archivo.txt")){
@@ -95,6 +92,7 @@ if( isset ($_POST["btnActualizar"])){
             if(file_exists("archivos/".$aClientes[$id]["imagen"])){
                 unlink("archivos/".$aClientes[$id]["imagen"]);
                 }
+
         }
 
             // sustituye los datos antiguos con los nuevos
@@ -196,6 +194,7 @@ if(isset($_POST["btnLimpiar"])){
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                                 <?php }; ?>
+
 
                                 <?php if(isset($_POST["btnActualizar"])){?>
                                 <div class="alert alert-warning alert-dismissible fade show mt-2" role="alert">
