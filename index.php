@@ -1,5 +1,7 @@
 <?php
 
+$msj="";
+$alert="";
 
 // abrir el Archivo.txt si existe
 if(file_exists("archivo.txt")){
@@ -63,6 +65,9 @@ if(isset($_POST["btnGuardar"])){
     //Guardar el jason en un archivo.txt
 
     file_put_contents("archivo.txt", $jsonClientes);
+
+    $msj= "El cliente se ha guardado correctamente";
+    $alert="alert-success";
 }
 
 
@@ -111,6 +116,9 @@ if( isset ($_POST["btnActualizar"])){
     //Guardar el jason en un archivo.txt
 
     file_put_contents("archivo.txt", $jsonClientes);
+
+    $msj= "El cliente se ha actualizado correctamente";
+    $alert="alert-secondary";
 }
 
     // BOTON BORRAR
@@ -127,7 +135,8 @@ if(isset($_POST["btnBorrar"])){
     //Actualizo el archivo con el nuevo array de clientes modificado
     file_put_contents("archivo.txt", json_encode($aClientes));
     
-     header("location: index.php");
+     $msj= "El cliente se ha borrado correctamente";
+     $alert="alert-secondary";
        
 };
 
@@ -143,7 +152,7 @@ if(isset($_POST["btnLimpiar"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Empleados</title>
+    <title>ABM Clientes</title>
     <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome/css/fontawesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -188,20 +197,13 @@ if(isset($_POST["btnLimpiar"])){
                                     <button type="submit" id="btnActualizar" name="btnActualizar" class="btn btn-success"> Actualizar </button>
                                 </div>
 
-                                <?php if(isset($_POST["btnGuardar"])){?>
-                                <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
-                                    <strong>Tu cliente se ha guardado exitosamente</strong> 
+                                <?php if($msj){?>
+                                <div class="alert <?php echo $alert; ?> alert-dismissible fade show mt-2" role="alert">
+                                    <strong><?php echo $msj; ?></strong> 
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                                 <?php }; ?>
 
-
-                                <?php if(isset($_POST["btnActualizar"])){?>
-                                <div class="alert alert-warning alert-dismissible fade show mt-2" role="alert">
-                                    <strong>Tu cliente se ha actualizado exitosamente</strong> 
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <?php }; ?>
 
                             </div>                          
             </form>
