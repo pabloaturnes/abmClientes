@@ -124,7 +124,7 @@ if( isset ($_POST["btnActualizar"])){
     // BOTON BORRAR
 if(isset($_POST["btnBorrar"])){
 
-    $imgBorrar = "archivos/" . $aClientes[$id]["imagen"];
+    $imgBorrar = 'archivos/.$aClientes[$id]["imagen"]';
     if(file_exists($imgBorrar)){
     unlink($imgBorrar);
     }
@@ -170,11 +170,11 @@ if(isset($_POST["btnLimpiar"])){
             <form action="" method="POST" enctype="multipart/form-data">
                             <div class="col-12 form-group">
                                 <label for="textDni">DNI: *</label>
-                                <input type="txt" id="txtDni" name="txtDni" class="form-control"  value="<?php echo isset($aClientes[$id])? $aClientes[$id]["dni"] : ""?>">
+                                <input type="txt" id="txtDni" name="txtDni" class="form-control"  value="<?php echo isset($aClientes[$id])? $aClientes[$id]["dni"] : ""?>" required>
                             </div>
                             <div class="col-12 form-group">
                                 <label for="textNombre">Nombre: *</label>
-                                <input type="text" id="txtNombre" name="txtNombre" class="form-control"  value="<?php echo isset($aClientes[$id])? $aClientes[$id]["nombre"] : ""?>">
+                                <input type="text" id="txtNombre" name="txtNombre" class="form-control"  value="<?php echo isset($aClientes[$id])? $aClientes[$id]["nombre"] : ""?>"required>
                             </div>                            
                             <div class="col-12 form-group">
                                 <label for="textTelefono">Telefono: </label>
@@ -182,7 +182,7 @@ if(isset($_POST["btnLimpiar"])){
                             </div>                            
                             <div class="col-12 form-group">
                                 <label for="textCorreo">Correo: *</label>
-                                <input type="text" id="txtCorreo" name="txtCorreo" class="form-control"  value="<?php echo isset($aClientes[$id])? $aClientes[$id]["correo"] : ""?>">
+                                <input type="text" id="txtCorreo" name="txtCorreo" class="form-control"  value="<?php echo isset($aClientes[$id])? $aClientes[$id]["correo"] : ""?>"required>
                             </div>                            
                             <div class="col-12 form-group mt-3">
                                  <label for="txtCorreo"> Archivo adjunto:</label>
