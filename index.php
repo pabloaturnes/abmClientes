@@ -15,20 +15,22 @@ if(file_exists("archivo.txt")){
 $id = isset($_GET["id"])? $_GET["id"] : "";
 
 if(isset($_GET["accion"]) && $_GET["accion"]=="eliminar"){
-    //Elimina la imagen fisicamente
 
-    $imgBorrar = "archivos/" . $aClientes[$id]["imagen"];
+    //Elimina la imagen fisicamente
+    $imgBorrar = 'archivos/.$aClientes[$id]["imagen"]' ;
     if(file_exists($imgBorrar)){
     unlink($imgBorrar);
     }
     
     //Eliminamos el cliente del array
     unset($aClientes[$id]);
-    
+
     //Actualizo el archivo con el nuevo array de clientes modificado
     file_put_contents("archivo.txt", json_encode($aClientes));
     
-     header("location: index.php");
+    $msj= "El cliente se ha borrado correctamente";
+    $alert="alert-secondary";
+
     }
 
 
