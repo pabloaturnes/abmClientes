@@ -96,8 +96,8 @@ if( isset ($_POST["btnActualizar"])){
         $nuevoNombre = $aClientes[$id]["imagen"];
         } else {
             //elimna la imagen anterior
-            if(file_exists("archivos/".$aClientes[$id]["imagen"])){
-                unlink("archivos/".$aClientes[$id]["imagen"]);
+            if(file_exists('archivos/.$aClientes[$id]["imagen"]')){
+                unlink('archivos/.$aClientes[$id]["imagen"]');
                 }
 
         }
